@@ -1,0 +1,15 @@
+<div class="heading">
+  <h1 class="name">{{user.name}}</h1>
+  <h3 class=" building">{{user.building}}</h3>
+  <button *ngIf="isCollapsed" (click)="toggleCollapse()"> Expand </button>
+  <button *ngIf="!ls" (click)="toggleCollapse()"> Collapse </button>
+  <div *ngIf="!isCollapsed">
+    <p class="address">{{user.address}}</p>
+    <div class="phone" *ngIf="user.phone.length > 0">
+      <!-- removing <div> tag from the DOM itself -->
+      <p>Phone :</p>
+      <p *ngFor="let phoneNumber of user.phone">{{phoneNumber}}</p>
+      <!-- example of directive (ngFor, ngIf) : attribute that you add to an element post Amgular 2+ -->
+    </div>
+  </div>
+</div>
